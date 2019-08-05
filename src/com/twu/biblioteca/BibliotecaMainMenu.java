@@ -5,22 +5,21 @@ import java.util.List;
 
 public class BibliotecaMainMenu {
     String menu;
-    String [] validOptions;
 
     public BibliotecaMainMenu(){
-        menu = "9. Exit";
-        validOptions = new String[]{"9"};
+        menu = "1. View list of books\n9. Exit";
     }
     public String showMenu() {
         return menu;
     }
 
     public String chooseOption(String s) {
-        List<String> list = Arrays.asList(validOptions);
-        if (list.contains(s)) {
-            return "Valid option";
+        if (s.equals("1")) {
+            return "Harry Potter\nBible";
+        } else if (s.equals("9")) {
+            return "Valid option.";
         } else {
             return "Invalid option. Please try again.";
         }
-    }
+     }
 }

@@ -13,18 +13,24 @@ public class BibliotecaMainMenuTest {
     @Test
     public void showMenuTest() {
         BibliotecaMainMenu bibliotecaMainMenu = new BibliotecaMainMenu();
-        assertEquals("Returns menu", "9. Exit", bibliotecaMainMenu.showMenu());
+        assertEquals("Returns menu", "1. View list of books\n9. Exit", bibliotecaMainMenu.showMenu());
     }
 
     @Test
-    public void chooseOptionTestTrue() {
+    public void chooseOptionTestTrue9() {
         BibliotecaMainMenu bibliotecaMainMenu = new BibliotecaMainMenu();
-        assertEquals("Accepts valid input", "Valid option", bibliotecaMainMenu.chooseOption("9"));
+        assertEquals("Accepts valid input", "Valid option.", bibliotecaMainMenu.chooseOption("9"));
+    }
+
+    @Test
+    public void chooseOptionTestTrue1() {
+        BibliotecaMainMenu bibliotecaMainMenu = new BibliotecaMainMenu();
+        assertEquals("View list of books", "Harry Potter\nBible", bibliotecaMainMenu.chooseOption("1"));
     }
 
     @Test
     public void chooseOptionTestError() {
         BibliotecaMainMenu bibliotecaMainMenu = new BibliotecaMainMenu();
-        assertEquals("Notifies about the invalid option", "Invalid option. Please try again.", bibliotecaMainMenu.chooseOption("1"));
+        assertEquals("Notifies about the invalid option", "Invalid option. Please try again.", bibliotecaMainMenu.chooseOption("1000000"));
     }
 }
