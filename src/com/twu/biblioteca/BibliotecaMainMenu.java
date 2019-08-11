@@ -1,14 +1,17 @@
 package com.twu.biblioteca;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class BibliotecaMainMenu {
-    String menu;
+    private String menu;
 
-    public BibliotecaMainMenu(){
+    public BibliotecaMainMenu() {
         menu = "1. View list of books\n9. Exit";
     }
+
     public String showMenu() {
         return menu;
     }
