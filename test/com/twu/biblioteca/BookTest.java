@@ -28,4 +28,10 @@ public class BookTest {
         assertEquals("Shows the author's name", "J.K.Rowling", book.getBookAuthor());
     }
 
+    @Test
+    public void getFullInfoTest() {
+        Book book = new Book("Harry Potter", "1998", "J.K.Rowling");
+        assertEquals("Returns the whole book info", "Harry Potter J.K.Rowling 1998", book.getFullInfo());
+    }
+
 }

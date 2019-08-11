@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
-public class Book {
+import java.util.ArrayList;
+
+public class Book extends ArrayList<Book> {
     String bookTitle;
     String pubYear;
     String bookAuthor;
@@ -21,5 +23,9 @@ public class Book {
 
     public String getBookAuthor() {
         return bookAuthor;
+    }
+
+    public String getFullInfo() {
+        return bookTitle + " " + bookAuthor + " " + pubYear;
     }
 }
