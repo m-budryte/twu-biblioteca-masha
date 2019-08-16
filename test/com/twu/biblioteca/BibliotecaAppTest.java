@@ -6,6 +6,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -13,15 +14,14 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-class BookListStub extends BookList {
+class BibliotecaMainMenuStub extends BibliotecaMainMenu {
     @Override
-    public String getList() {
-        return "Book\nBook\nBook";
+    public void showMenu() {
+        System.out.println("1. View list of books\n9.Exit");
     }
 }
 
-
-public class BibliotecaViewBookListMenuTest {
+public class BibliotecaAppTest {
     private final InputStream systemIn = System.in;
     private final PrintStream systemOut = System.out;
 
@@ -43,8 +43,7 @@ public class BibliotecaViewBookListMenuTest {
         return testOut.toString();
     }
 
-    BookListStub bookListStub = new BookListStub();
-    BibliotecaViewBookListMenu bibliotecaViewBookListMenu = new BibliotecaViewBookListMenu(bookListStub);
+    BibliotecaApp bibliotecaApp = new BibliotecaApp();
 
     @After
     public void restoreSystemInputOutput() {
@@ -56,8 +55,14 @@ public class BibliotecaViewBookListMenuTest {
     public TestName name = new TestName();
 
     @Test
-    public void viewBooksTest (){
-        bibliotecaViewBookListMenu.viewBooks();
-        assertEquals("Shows the list of books", "Book\nBook\nBook\n", getOutput());
+    public void welcomesUserTest() {
+        bibliotecaApp.welcome();
+        assertEquals("Shows the welcome message","Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n", getOutput());
+    }
+
+    @Test
+    public void welcomesAndShowsTheMenu() {
+        bibliotecaApp.main(null);
+        assertEquals("Shows the welcome message and the main menu","Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n1. View list of books\n9.Exit\n", getOutput());
     }
 }

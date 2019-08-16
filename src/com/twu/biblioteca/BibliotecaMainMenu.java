@@ -1,28 +1,23 @@
 package com.twu.biblioteca;
 
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Arrays;
-import java.util.List;
-
 public class BibliotecaMainMenu {
     private String menu;
 
     public BibliotecaMainMenu() {
-        menu = "1. View list of books\n9. Exit";
+        menu = "1. View list of books\n9.Exit";
     }
 
-    public String showMenu() {
-        return menu;
+    public void showMenu() {
+        System.out.println(menu);
     }
 
-    public String chooseOption(String s) {
+    public void chooseOption(String s) {
         if (s.equals("1")) {
-            return "Harry Potter\nBible";
+            System.out.println("Valid option.\n0. Go back");
         } else if (s.equals("9")) {
-            return "Valid option.";
+            System.out.println("EXIT");
         } else {
-            return "Invalid option. Please try again.";
+            System.out.println("Invalid option. Please try again.");
         }
      }
 }

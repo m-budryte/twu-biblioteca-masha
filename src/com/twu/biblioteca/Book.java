@@ -26,6 +26,6 @@ public class Book extends ArrayList<Book> {
     }
 
     public String getFullInfo() {
-        return bookTitle + " " + bookAuthor + " " + pubYear;
+        return bookTitle + " | " + bookAuthor + " | " + pubYear;
     }
 }

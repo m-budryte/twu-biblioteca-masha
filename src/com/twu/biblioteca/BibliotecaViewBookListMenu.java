@@ -1,13 +1,13 @@
 package com.twu.biblioteca;
 
 public class BibliotecaViewBookListMenu {
-    BookList currentBookList;
+    private BookList currentBookList;
+
     public BibliotecaViewBookListMenu(BookList bookList) {
         currentBookList = bookList;
-
     }
 
-    public String viewBooks() {
-        return currentBookList.getList();
+    public void viewBooks() {
+        System.out.println(currentBookList.getList());
     }
 }

@@ -31,7 +31,7 @@ public class BookTest {
     @Test
     public void getFullInfoTest() {
         Book book = new Book("Harry Potter", "1998", "J.K.Rowling");
-        assertEquals("Returns the whole book info", "Harry Potter J.K.Rowling 1998", book.getFullInfo());
+        assertEquals("Returns the whole book info", "Harry Potter | J.K.Rowling | 1998", book.getFullInfo());
     }
 
 }
