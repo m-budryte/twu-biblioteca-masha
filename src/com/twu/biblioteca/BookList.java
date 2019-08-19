@@ -1,15 +1,16 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class BookList {
-    ArrayList<Book> bookList;
+    ArrayList<Book> booklist;
     Book book1;
     Book book2;
     Book book3;
 
     BookList(){
-        bookList = new ArrayList<Book>();
+        booklist = new ArrayList<Book>();
     }
 
     public void loadFakeResources() {
@@ -22,15 +23,18 @@ public class BookList {
     }
 
     void loadBooks(Book book) {
-        bookList.add(book);
+        booklist.add(book);
     }
 
-    String getList() {
+    String getListString() {
         String bookListString = "";
-        for (Book book : bookList) {
+        for (Book book : booklist) {
             bookListString += (book.getFullInfo() + "\n");
         }
         return bookListString;
     }
 
+    public ArrayList<Book> getList() {
+        return booklist;
+    }
 }

@@ -15,13 +15,13 @@ import static org.junit.Assert.assertEquals;
 
 class BookListStub extends BookList {
     @Override
-    public String getList() {
-        return "Book\nBook\nBook";
+    public String getListString() {
+        return "Book1\nBook2\nBook3";
     }
 }
 
 
-public class BibliotecaViewBookListMenuTest {
+public class BibliotecaBookListMenuTest {
     private final InputStream systemIn = System.in;
     private final PrintStream systemOut = System.out;
 
@@ -44,7 +44,7 @@ public class BibliotecaViewBookListMenuTest {
     }
 
     BookListStub bookListStub = new BookListStub();
-    BibliotecaViewBookListMenu bibliotecaViewBookListMenu = new BibliotecaViewBookListMenu(bookListStub);
+    BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookListStub);
 
     @After
     public void restoreSystemInputOutput() {
@@ -57,7 +57,7 @@ public class BibliotecaViewBookListMenuTest {
 
     @Test
     public void viewBooksTest (){
-        bibliotecaViewBookListMenu.viewBooks();
-        assertEquals("Shows the list of books", "Book\nBook\nBook\n", getOutput());
+        bibliotecaBookListMenu.viewBooks();
+        assertEquals("Shows the list of books", "Book1\nBook2\nBook3\n", getOutput());
     }
 }

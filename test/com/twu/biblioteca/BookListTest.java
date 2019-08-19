@@ -10,6 +10,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -72,14 +73,22 @@ public class BookListTest {
     @Test
     public void loadOneBookTest(){
         bookList.loadBooks(bookStub);
-        assertEquals("1 book can be loaded", "Title | Author | Year\n", bookList.getList());
+        assertEquals("1 book can be loaded", "Title | Author | Year\n", bookList.getListString());
     }
 
     @Test
     public void loadTwoBooksTest(){
         bookList.loadBooks(bookStub);
         bookList.loadBooks(bookStub);
-        assertEquals("2 books can be loaded", "Title | Author | Year\nTitle | Author | Year\n", bookList.getList());
+        assertEquals("2 books can be loaded", "Title | Author | Year\nTitle | Author | Year\n", bookList.getListString());
+    }
+
+    @Test
+    public void getsBookListObject(){
+        bookList.loadBooks(bookStub);
+        ArrayList<Book> expected = new ArrayList<Book>();
+        expected.add(bookStub);
+        assertEquals("A ArrayList of books returned", expected, bookList.getList());
     }
 }
 
