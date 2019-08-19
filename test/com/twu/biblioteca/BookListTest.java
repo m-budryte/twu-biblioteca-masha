@@ -72,20 +72,20 @@ public class BookListTest {
 
     @Test
     public void loadOneBookTest(){
-        bookList.loadBooks(bookStub);
+        bookList.loadBook(bookStub);
         assertEquals("1 book can be loaded", "Title | Author | Year\n", bookList.getListString());
     }
 
     @Test
     public void loadTwoBooksTest(){
-        bookList.loadBooks(bookStub);
-        bookList.loadBooks(bookStub);
+        bookList.loadBook(bookStub);
+        bookList.loadBook(bookStub);
         assertEquals("2 books can be loaded", "Title | Author | Year\nTitle | Author | Year\n", bookList.getListString());
     }
 
     @Test
     public void getsBookListObject(){
-        bookList.loadBooks(bookStub);
+        bookList.loadBook(bookStub);
         ArrayList<Book> expected = new ArrayList<Book>();
         expected.add(bookStub);
         assertEquals("A ArrayList of books returned", expected, bookList.getList());

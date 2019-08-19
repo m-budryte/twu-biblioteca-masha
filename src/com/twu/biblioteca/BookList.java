@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class BookList {
     ArrayList<Book> booklist;
@@ -13,20 +12,24 @@ public class BookList {
         booklist = new ArrayList<Book>();
     }
 
+    public void loadBook(Book book) {
+        booklist.add(book);
+    }
+
+    public void removeBook(Book book) {
+        booklist.remove(book);
+    }
+
     public void loadFakeResources() {
         this.book1 = new Book("Harry Potter", "1997", "J K Rowling");
         this.book2 = new Book("The Hunger Games", "2009", "Suzanne Collins");
         this.book3 = new Book("Twilight", "2005", "Stephenie Meyer");
-        loadBooks(book1);
-        loadBooks(book2);
-        loadBooks(book3);
+        loadBook(book1);
+        loadBook(book2);
+        loadBook(book3);
     }
 
-    void loadBooks(Book book) {
-        booklist.add(book);
-    }
-
-    String getListString() {
+    public String getListString() {
         String bookListString = "";
         for (Book book : booklist) {
             bookListString += (book.getFullInfo() + "\n");

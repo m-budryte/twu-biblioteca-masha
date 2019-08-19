@@ -10,15 +10,9 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-
-class BookListStub extends BookList {
-    @Override
-    public String getListString() {
-        return "Book1\nBook2\nBook3";
-    }
-}
 
 
 public class BibliotecaBookListMenuTest {
@@ -43,8 +37,7 @@ public class BibliotecaBookListMenuTest {
         return testOut.toString();
     }
 
-    BookListStub bookListStub = new BookListStub();
-    BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookListStub);
+    BookList bookList = new BookList();
 
     @After
     public void restoreSystemInputOutput() {
@@ -57,7 +50,34 @@ public class BibliotecaBookListMenuTest {
 
     @Test
     public void viewBooksTest (){
+        bookList.loadFakeResources();
+        BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
         bibliotecaBookListMenu.viewBooks();
-        assertEquals("Shows the list of books", "Book1\nBook2\nBook3\n", getOutput());
+        assertEquals("Shows the list of books", "Harry Potter | J K Rowling | 1997\nThe Hunger Games | Suzanne Collins | 2009\nTwilight | Stephenie Meyer | 2005\n", getOutput());
+    }
+
+    @Test
+    public void aBookCanBeReserved (){
+        bookList.loadFakeResources();
+        BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
+        bibliotecaBookListMenu.reserveBook("Harry Potter");
+        bibliotecaBookListMenu.viewBooks();
+        assertEquals("A book can be reserved", "Thank you! Enjoy the book.\nThe Hunger Games | Suzanne Collins | 2009\nTwilight | Stephenie Meyer | 2005\n", getOutput());
+    }
+
+    @Test
+    public void successMessageReservation (){
+        bookList.loadFakeResources();
+        BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
+        bibliotecaBookListMenu.reserveBook("Harry Potter");
+        assertEquals("A book can be reserved", "Thank you! Enjoy the book.\n", getOutput());
+    }
+
+    @Test
+    public void unsuccessfullMessageReservation (){
+        bookList.loadFakeResources();
+        BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
+        bibliotecaBookListMenu.reserveBook("BDJJKSP:ABCHDNFL");
+        assertEquals("A book can be reserved", "Sorry, this book is not available.\n", getOutput());
     }
 }
