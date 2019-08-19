@@ -19,15 +19,15 @@ class BookStub extends Book {
         super(title, year, author);
     }
     @Override
-    public String getBookTitle(){
+    public String getItemTitle(){
         return "Title";
     }
 
-    public String getPubYear(){
+    public String getReleaseYear(){
         return "Year";
     }
 
-    public String getBookAuthor(){
+    public String getItemAuthor(){
         return "Author";
     }
 
@@ -72,20 +72,20 @@ public class BookListTest {
 
     @Test
     public void loadOneBookTest(){
-        bookList.loadBook(bookStub);
+        bookList.addItem(bookStub);
         assertEquals("1 book can be loaded", "Title | Author | Year\n", bookList.getListString());
     }
 
     @Test
     public void loadTwoBooksTest(){
-        bookList.loadBook(bookStub);
-        bookList.loadBook(bookStub);
+        bookList.addItem(bookStub);
+        bookList.addItem(bookStub);
         assertEquals("2 books can be loaded", "Title | Author | Year\nTitle | Author | Year\n", bookList.getListString());
     }
 
     @Test
     public void getsBookListObject(){
-        bookList.loadBook(bookStub);
+        bookList.addItem(bookStub);
         ArrayList<Book> expected = new ArrayList<Book>();
         expected.add(bookStub);
         assertEquals("A ArrayList of books returned", expected, bookList.getList());

@@ -10,7 +10,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -52,7 +51,7 @@ public class BibliotecaBookListMenuTest {
     public void viewBooksTest (){
         bookList.loadFakeResources();
         BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
-        bibliotecaBookListMenu.viewBooks();
+        bibliotecaBookListMenu.viewAll();
         assertEquals("Shows the list of books", "Harry Potter | J K Rowling | 1997\nThe Hunger Games | Suzanne Collins | 2009\nTwilight | Stephenie Meyer | 2005\n", getOutput());
     }
 
@@ -60,9 +59,9 @@ public class BibliotecaBookListMenuTest {
     public void aBookCanBeReservedTest (){
         bookList.loadFakeResources();
         BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
-        bibliotecaBookListMenu.reserveBook("Harry Potter");
+        bibliotecaBookListMenu.reserveItem("Harry Potter");
         setUpOutput();
-        bibliotecaBookListMenu.viewBooks();
+        bibliotecaBookListMenu.viewAll();
         assertEquals("A book can be reserved", "The Hunger Games | Suzanne Collins | 2009\nTwilight | Stephenie Meyer | 2005\n", getOutput());
     }
 
@@ -70,7 +69,7 @@ public class BibliotecaBookListMenuTest {
     public void successMessageReservationTest (){
         bookList.loadFakeResources();
         BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
-        bibliotecaBookListMenu.reserveBook("Harry Potter");
+        bibliotecaBookListMenu.reserveItem("Harry Potter");
         assertEquals("success message upon reservation", "Thank you! Enjoy the book.\n", getOutput());
     }
 
@@ -78,7 +77,7 @@ public class BibliotecaBookListMenuTest {
     public void unsuccessfullMessageReservationTest (){
         bookList.loadFakeResources();
         BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
-        bibliotecaBookListMenu.reserveBook("BDJJKSP:ABCHDNFL");
+        bibliotecaBookListMenu.reserveItem("BDJJKSP:ABCHDNFL");
         assertEquals("unsuccessful message upon reservation", "Sorry, this book is not available.\n", getOutput());
     }
 
@@ -86,10 +85,10 @@ public class BibliotecaBookListMenuTest {
     public void returnBookTest (){
         bookList.loadFakeResources();
         BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
-        bibliotecaBookListMenu.reserveBook("Harry Potter");
-        bibliotecaBookListMenu.returnBook("Harry Potter");
+        bibliotecaBookListMenu.reserveItem("Harry Potter");
+        bibliotecaBookListMenu.returnItem("Harry Potter");
         setUpOutput();
-        bibliotecaBookListMenu.viewBooks();
+        bibliotecaBookListMenu.viewAll();
         assertEquals("book can be returned", "The Hunger Games | Suzanne Collins | 2009\nTwilight | Stephenie Meyer | 2005\nHarry Potter | J K Rowling | 1997\n", getOutput());
     }
 
@@ -97,9 +96,9 @@ public class BibliotecaBookListMenuTest {
     public void successMessageReturnTest (){
         bookList.loadFakeResources();
         BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
-        bibliotecaBookListMenu.reserveBook("Harry Potter");
+        bibliotecaBookListMenu.reserveItem("Harry Potter");
         setUpOutput();
-        bibliotecaBookListMenu.returnBook("Harry Potter");
+        bibliotecaBookListMenu.returnItem("Harry Potter");
         assertEquals("success message upon reservation", "Thank you for returning the book.\n", getOutput());
     }
 
@@ -107,7 +106,7 @@ public class BibliotecaBookListMenuTest {
     public void unsuccessfullMessageReturnTest (){
         bookList.loadFakeResources();
         BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
-        bibliotecaBookListMenu.returnBook("BDJJKSP:ABCHDNFL");
+        bibliotecaBookListMenu.returnItem("BDJJKSP:ABCHDNFL");
         assertEquals("A book can be reserved", "That is not a valid book to return.\n", getOutput());
     }
 }

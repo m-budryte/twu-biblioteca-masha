@@ -2,13 +2,13 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class BibliotecaBookListMenu implements reserveAndReturn {
-    private BookList unreserved;
-    private BookList reserved;
+public class BibliotecaMovieListMenu implements reserveAndReturn {
+    private MovieList unreserved;
+    private MovieList reserved;
 
-    public BibliotecaBookListMenu(BookList bookList) {
-        unreserved = bookList;
-        reserved = new BookList();
+    public BibliotecaMovieListMenu(MovieList movieList) {
+        unreserved = movieList;
+        reserved = new MovieList();
     }
 
     @Override
@@ -17,25 +17,25 @@ public class BibliotecaBookListMenu implements reserveAndReturn {
     }
 
     @Override
-    public Book findItem(String bookTitle, ArrayList<LibraryItem> list){
+    public Movie findItem(String movieTitle, ArrayList<LibraryItem> list){
         LibraryItem output = null;
         for (LibraryItem item : list) {
-            if (item.getItemTitle() == bookTitle){
+            if (item.getItemTitle() == movieTitle){
                 output = item;
             };
         }
-        return (Book) output;
+        return (Movie) output;
     }
 
     @Override
     public void reserveItem(String bookTitle) {
         ArrayList<LibraryItem> list = unreserved.getList();
-        Book bookToReserve = findItem(bookTitle, list);
+        Movie movieToReserve = findItem(bookTitle, list);
 
-        unreserved.removeItem(bookToReserve);
-        reserved.addItem(bookToReserve);
+        unreserved.removeItem(movieToReserve);
+        reserved.addItem(movieToReserve);
 
-        if (bookToReserve != null) {
+        if (movieToReserve != null) {
             System.out.println("Thank you! Enjoy the book.");
         } else {
             System.out.println("Sorry, this book is not available.");
@@ -44,13 +44,13 @@ public class BibliotecaBookListMenu implements reserveAndReturn {
 
     @Override
     public void returnItem(String bookTitle) {
-        ArrayList<LibraryItem> list = reserved.getList();
-        Book bookToReturn = findItem(bookTitle, list);
+        ArrayList<LibraryItem> list = unreserved.getList();
+        Movie movieToReserve = findItem(bookTitle, list);
 
-        unreserved.addItem(bookToReturn);
-        reserved.removeItem(bookToReturn);
+        unreserved.addItem(movieToReserve);
+        reserved.removeItem(movieToReserve);
 
-        if (bookToReturn != null) {
+        if (movieToReserve != null) {
             System.out.println("Thank you for returning the book.");
         } else {
             System.out.println("That is not a valid book to return.");

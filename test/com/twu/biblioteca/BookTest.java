@@ -13,19 +13,19 @@ public class BookTest {
     @Test
     public void getBookTitleTest() {
         Book book = new Book("Harry Potter", "1998", "J.K.Rowling");
-        assertEquals("Shows the title", "Harry Potter", book.getBookTitle());
+        assertEquals("Shows the title", "Harry Potter", book.getItemTitle());
     }
 
     @Test
     public void getPubYearTest() {
         Book book = new Book("Harry Potter", "1998", "J.K.Rowling");
-        assertEquals("Shows the publication year", "1998", book.getPubYear());
+        assertEquals("Shows the publication year", "1998", book.getReleaseYear());
     }
 
     @Test
     public void getBookAuthorTest() {
         Book book = new Book("Harry Potter", "1998", "J.K.Rowling");
-        assertEquals("Shows the author's name", "J.K.Rowling", book.getBookAuthor());
+        assertEquals("Shows the author's name", "J.K.Rowling", book.getItemAuthor());
     }
 
     @Test
