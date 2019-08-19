@@ -16,16 +16,19 @@ public class BibliotecaBookListMenu {
         System.out.print(unreserved.getListString());
     }
 
-    public void reserveBook(String bookTitle) {
-        ArrayList<Book> list = unreserved.getList();
-
-        Book bookToReserve = null;
-
+    public Book findBook(String bookTitle, ArrayList<Book> list){
+        Book output = null;
         for (Book book : list) {
             if (book.getBookTitle() == bookTitle){
-                bookToReserve = book;
+                output = book;
             };
         }
+        return output;
+    }
+
+    public void reserveBook(String bookTitle) {
+        ArrayList<Book> list = unreserved.getList();
+        Book bookToReserve = findBook(bookTitle, list);
 
         unreserved.removeBook(bookToReserve);
         reserved.loadBook(bookToReserve);
@@ -34,6 +37,20 @@ public class BibliotecaBookListMenu {
             System.out.println("Thank you! Enjoy the book.");
         } else {
             System.out.println("Sorry, this book is not available.");
+        }
+    }
+
+    public void returnBook(String bookTitle) {
+        ArrayList<Book> list = reserved.getList();
+        Book bookToReturn = findBook(bookTitle, list);
+
+        unreserved.loadBook(bookToReturn);
+        reserved.removeBook(bookToReturn);
+
+        if (bookToReturn != null) {
+            System.out.println("Thank you for returning the book.");
+        } else {
+            System.out.println("That is not a valid book to return.");
         }
     }
 }

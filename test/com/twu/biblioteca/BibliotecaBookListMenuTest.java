@@ -57,27 +57,57 @@ public class BibliotecaBookListMenuTest {
     }
 
     @Test
-    public void aBookCanBeReserved (){
+    public void aBookCanBeReservedTest (){
         bookList.loadFakeResources();
         BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
         bibliotecaBookListMenu.reserveBook("Harry Potter");
+        setUpOutput();
         bibliotecaBookListMenu.viewBooks();
-        assertEquals("A book can be reserved", "Thank you! Enjoy the book.\nThe Hunger Games | Suzanne Collins | 2009\nTwilight | Stephenie Meyer | 2005\n", getOutput());
+        assertEquals("A book can be reserved", "The Hunger Games | Suzanne Collins | 2009\nTwilight | Stephenie Meyer | 2005\n", getOutput());
     }
 
     @Test
-    public void successMessageReservation (){
+    public void successMessageReservationTest (){
         bookList.loadFakeResources();
         BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
         bibliotecaBookListMenu.reserveBook("Harry Potter");
-        assertEquals("A book can be reserved", "Thank you! Enjoy the book.\n", getOutput());
+        assertEquals("success message upon reservation", "Thank you! Enjoy the book.\n", getOutput());
     }
 
     @Test
-    public void unsuccessfullMessageReservation (){
+    public void unsuccessfullMessageReservationTest (){
         bookList.loadFakeResources();
         BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
         bibliotecaBookListMenu.reserveBook("BDJJKSP:ABCHDNFL");
-        assertEquals("A book can be reserved", "Sorry, this book is not available.\n", getOutput());
+        assertEquals("unsuccessful message upon reservation", "Sorry, this book is not available.\n", getOutput());
+    }
+
+    @Test
+    public void returnBookTest (){
+        bookList.loadFakeResources();
+        BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
+        bibliotecaBookListMenu.reserveBook("Harry Potter");
+        bibliotecaBookListMenu.returnBook("Harry Potter");
+        setUpOutput();
+        bibliotecaBookListMenu.viewBooks();
+        assertEquals("book can be returned", "The Hunger Games | Suzanne Collins | 2009\nTwilight | Stephenie Meyer | 2005\nHarry Potter | J K Rowling | 1997\n", getOutput());
+    }
+
+    @Test
+    public void successMessageReturnTest (){
+        bookList.loadFakeResources();
+        BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
+        bibliotecaBookListMenu.reserveBook("Harry Potter");
+        setUpOutput();
+        bibliotecaBookListMenu.returnBook("Harry Potter");
+        assertEquals("success message upon reservation", "Thank you for returning the book.\n", getOutput());
+    }
+
+    @Test
+    public void unsuccessfullMessageReturnTest (){
+        bookList.loadFakeResources();
+        BibliotecaBookListMenu bibliotecaBookListMenu = new BibliotecaBookListMenu(bookList);
+        bibliotecaBookListMenu.returnBook("BDJJKSP:ABCHDNFL");
+        assertEquals("A book can be reserved", "That is not a valid book to return.\n", getOutput());
     }
 }

@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9f93239a-6fc8-4897-aef1-1046ba063f33" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/BookList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/BookList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BookListStub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BookListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BookListTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaBookListMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaBookListMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BookList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BookList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaBookListMenuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaBookListMenuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BookListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BookListTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +99,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BibliotecaBookListMenuTest.aBookCanBeReserved">
+  <component name="RunManager" selected="JUnit.BibliotecaBookListMenuTest.returnBookTest">
     <configuration name="BibliotecaBookListMenuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -120,7 +115,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BibliotecaBookListMenuTest.aBookCanBeReserved" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BibliotecaBookListMenuTest.returnBookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -130,13 +125,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaBookListMenuTest" />
-      <option name="METHOD_NAME" value="aBookCanBeReserved" />
+      <option name="METHOD_NAME" value="returnBookTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BibliotecaBookListMenuTest.successMessageReservation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BibliotecaBookListMenuTest.successMessageReturnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -146,13 +141,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaBookListMenuTest" />
-      <option name="METHOD_NAME" value="successMessageReservation" />
+      <option name="METHOD_NAME" value="successMessageReturnTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BibliotecaBookListMenuTest.unsuccessfullMessageReservation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BibliotecaBookListMenuTest.unsuccessfullMessageReservationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -162,13 +157,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaBookListMenuTest" />
-      <option name="METHOD_NAME" value="unsuccessfullMessageReservation" />
+      <option name="METHOD_NAME" value="unsuccessfullMessageReservationTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BibliotecaBookListMenuTest.viewBooksTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BibliotecaBookListMenuTest.unsuccessfullMessageReturnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -178,26 +173,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaBookListMenuTest" />
-      <option name="METHOD_NAME" value="viewBooksTest" />
+      <option name="METHOD_NAME" value="unsuccessfullMessageReturnTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.BibliotecaBookListMenuTest.aBookCanBeReserved" />
       <item itemvalue="JUnit.BibliotecaBookListMenuTest" />
-      <item itemvalue="JUnit.BibliotecaBookListMenuTest.viewBooksTest" />
-      <item itemvalue="JUnit.BibliotecaBookListMenuTest.successMessageReservation" />
-      <item itemvalue="JUnit.BibliotecaBookListMenuTest.unsuccessfullMessageReservation" />
+      <item itemvalue="JUnit.BibliotecaBookListMenuTest.returnBookTest" />
+      <item itemvalue="JUnit.BibliotecaBookListMenuTest.unsuccessfullMessageReservationTest" />
+      <item itemvalue="JUnit.BibliotecaBookListMenuTest.successMessageReturnTest" />
+      <item itemvalue="JUnit.BibliotecaBookListMenuTest.unsuccessfullMessageReturnTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BibliotecaBookListMenuTest.aBookCanBeReserved" />
+        <item itemvalue="JUnit.BibliotecaBookListMenuTest.returnBookTest" />
         <item itemvalue="JUnit.BibliotecaBookListMenuTest" />
-        <item itemvalue="JUnit.BibliotecaBookListMenuTest.unsuccessfullMessageReservation" />
-        <item itemvalue="JUnit.BibliotecaBookListMenuTest.successMessageReservation" />
-        <item itemvalue="JUnit.BibliotecaBookListMenuTest.viewBooksTest" />
+        <item itemvalue="JUnit.BibliotecaBookListMenuTest.unsuccessfullMessageReturnTest" />
+        <item itemvalue="JUnit.BibliotecaBookListMenuTest.successMessageReturnTest" />
+        <item itemvalue="JUnit.BibliotecaBookListMenuTest.unsuccessfullMessageReservationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -214,7 +209,7 @@
       <workItem from="1565883387890" duration="290000" />
       <workItem from="1565883789834" duration="155000" />
       <workItem from="1565946585216" duration="14186000" />
-      <workItem from="1565968171200" duration="14592000" />
+      <workItem from="1565968171200" duration="16045000" />
     </task>
     <servers />
   </component>
