@@ -16,7 +16,15 @@ public class Movie extends LibraryItem {
         movieRating = 0;
     }
 
+    public String getDirector(){
+        return movieDirector;
+    };
+
     public String getFullInfo() {
         return itemTitle + " | " + movieDirector + " | " + releaseYear + " | " + movieRating;
+    }
+
+    public String getRating() {
+        return movieRating.toString();
     }
 }

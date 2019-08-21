@@ -55,7 +55,7 @@ public class BibliotecaMainMenuTest {
     @Test
     public void chooseOption1Test() {
         bibliotecaMainMenu.chooseOption("1");
-        assertEquals("Choose option 1", "Valid option.\n0. Go back\n", getOutput());
+        assertEquals("Choose option 1", "Harry Potter | J K Rowling | 1997\nThe Hunger Games | Suzanne Collins | 2009\nTwilight | Stephenie Meyer | 2005\n1. Reserve\n2. Return \n0. Go back", getOutput());
     }
 
     @Test
@@ -66,7 +66,7 @@ public class BibliotecaMainMenuTest {
 
     @Test
     public void chooseInvalidOptionTest() {
-        bibliotecaMainMenu.chooseOption("10000000000000");
+        bibliotecaMainMenu.chooseOption("10000");
         assertEquals("Choose invalid", "Invalid option. Please try again.\n", getOutput());
     }
 }
