@@ -28,32 +28,32 @@ public class BibliotecaMovieListMenu implements reserveAndReturn {
     }
 
     @Override
-    public void reserveItem(String bookTitle) {
+    public void reserveItem(String movieTitle) {
         ArrayList<LibraryItem> list = unreserved.getList();
-        Movie movieToReserve = findItem(bookTitle, list);
+        Movie movieToReserve = findItem(movieTitle, list);
 
         unreserved.removeItem(movieToReserve);
         reserved.addItem(movieToReserve);
 
         if (movieToReserve != null) {
-            System.out.println("Thank you! Enjoy the book.");
+            System.out.println("Thank you! Enjoy the movie.");
         } else {
-            System.out.println("Sorry, this book is not available.");
+            System.out.println("Sorry, this movie is not available.");
         }
     }
 
     @Override
-    public void returnItem(String bookTitle) {
-        ArrayList<LibraryItem> list = unreserved.getList();
-        Movie movieToReserve = findItem(bookTitle, list);
+    public void returnItem(String movieTitle) {
+        ArrayList<LibraryItem> list = reserved.getList();
+        Movie movieToReserve = findItem(movieTitle, list);
 
         unreserved.addItem(movieToReserve);
         reserved.removeItem(movieToReserve);
 
         if (movieToReserve != null) {
-            System.out.println("Thank you for returning the book.");
+            System.out.println("Thank you for returning the movie.");
         } else {
-            System.out.println("That is not a valid book to return.");
+            System.out.println("That is not a valid movie to return.");
         }
     }
 }
